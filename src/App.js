@@ -4,19 +4,19 @@ import axios from 'axios';
 function App() {
 
   const [ inputs, setInputs ] = React.useState({
-    clientId: '',
-    clientSecret: '',
+    clientId: 'ec39ceda76024f9b8c6af9794f0f2d0d',
+    clientSecret: '5958a64995064a03acc88e80bc6c0484',
     scope: '',
   });
 
   const [ scopes, setScopes ] = React.useState({
     'ugc-image-upload': false,
-    'user-read-recently-played': false,
+    'user-read-recently-played': true,
     'user-top-read': false,
     'user-read-playback-position': false,
     'user-read-playback-state': false,
     'user-modify-playback-state': false,
-    'user-read-currently-playing': false,
+    'user-read-currently-playing': true,
     'app-remote-control': false,
     'playlist-modify-public': false,
     'playlist-modify-private': false,
@@ -139,41 +139,7 @@ function App() {
       <p><strong>Remember to add {window.location.href.split('/').slice(0, 3).join('/') + '/callback'} as a redirect uri in your app.</strong></p>
 
       <div>
-        <label>Client Id</label>
-        <input
-          type="text"
-          name="clientId"
-          value={inputs.clientId}
-          onChange={handleChange}
-        />
-
-        <br/>
-
-        <label>Client Secret</label>
-        <input
-          type="text"
-          name="clientSecret"
-          value={inputs.clientSecret}
-          onChange={handleChange}
-        />
-
-        <br/>
-
-        <label>Scope</label>
-        <br/>
-
-        {scopeElements}
-        <div style={{width: '250px', display: 'inline-block'}}>
-          <input
-            type="checkbox"
-            onChange={handleSelectAll}
-          />
-          <label style={{width: '200px', marginLeft: '10px', fontWeight: 'normal'}}>Select all</label>
-        </div>
-
-        <br/>
-
-        <a style={{color: 'black'}} href={queryString}><button >Submit</button></a>
+        <a style={{color: 'black'}} href={queryString}><button >Get Token</button></a>
       </div>
 
       {outputs.filled && 
